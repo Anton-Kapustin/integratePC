@@ -20,7 +20,6 @@ class Notify:
 		        # title += "\""
 			elif "text" in string:
 				text = string.replace("text: ", "")
-				text = string
 				text += "\""
 
 		cmd = "notify-send " + name + title + " " + text + " -i Integrate"

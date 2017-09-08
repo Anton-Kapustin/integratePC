@@ -1,3 +1,4 @@
+
 import subprocess, os, re
 
 
@@ -15,7 +16,6 @@ class SoundControl:
 			for i in arr:
 				if "hdmi" in i:
 					snd = i
-				# snd += i + " " + arr[i] + "\n"
 			print(snd)
 			return snd
 		else:
@@ -56,10 +56,6 @@ class SoundControl:
 			print(self.LOG_TAG + "t " + hdmiState)
 			return True
 
-	# def getAppVol(self):
-
-	# def getMasterVol(self):
-
 	def getSoundOutputs(self):
 		cmd = "pacmd list-sinks"
 		proc = subprocess.Popen(cmd, stdout = subprocess.PIPE, shell=True)
@@ -87,7 +83,6 @@ class SoundControl:
 					arr[mass[i]] = sound[0]
 					i += 1
 		return arr
-	# def setSoundDefaultOutput(self, source):
 
 if __name__ == "__main__":
 	s = SoundControl()

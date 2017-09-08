@@ -1,39 +1,41 @@
-import Client
+from Client import Client
 from NetworkStatus import NetworkStatus
 from BatteryStatus import BatteryStatus
-from backlight import Backlight
-from sound import SoundControl
+from Backlight import Backlight
+from Sound import SoundControl
 from PyQt5 import QtCore
-from notify import Notify
+from Notify import Notify
+from Share import Share
 import re, subprocess
 
-LOG_TAG = "Commands: "
 class Commands:
 
     def __init__(self):
         self.uiUpdate = UiUpdate()
         self.backlight = Backlight()
+        self.LOG_TAG = "Commands: "
 
-    def analyze(self, cmd):
+    def analyze(self, cmd, ip):
 
         if "info" in cmd:
             status = BatteryStatus.getStatus(BatteryStatus)
+            status["PC_info"] = ""
             status['network'] = NetworkStatus.getNetworkStatus(NetworkStatus)
-            # backlight = Backlight()
             status['backlight'] = self.backlight.getBacklight()
             status['phone'] = 'get'
             sound = SoundControl()
             status['sound'] = sound.getSoundVol()
-            print(LOG_TAG + status['battery'])
-            print(LOG_TAG + status['network'])
-            Client.client.conneсtion()
-            print(LOG_TAG + "Отправка: ")
-            Client.client.sending(status)
-            print(LOG_TAG + "Отправлено: ")
-            Client.client.closing()
+            print(self.LOG_TAG + status['battery'])
+            print(self.LOG_TAG + status['network'])
+            client = Client()
+            client.conneсtion(ip)
+            print(self.LOG_TAG + "Отправка: ")
+            client.sending(status)
+            print(self.LOG_TAG + "Отправлено: ")
+            client.closing()
         elif "backlight" in cmd:
             backl = re.findall(r'\d+', cmd)
-            print(LOG_TAG + backl[0])
+            print(self.LOG_TAG + backl[0])
             backlight = backl[0]
             self.backlight.setBacklight(backlight)
         elif "sound" in cmd:
@@ -44,7 +46,7 @@ class Commands:
 
         elif "&" in cmd:
             command = cmd.split("&")
-            print(LOG_TAG + cmd)
+            print(self.LOG_TAG + cmd)
             for i in command:
                 if "battery" in i:
                     self.uiUpdate.sendSignal(i)
@@ -54,6 +56,10 @@ class Commands:
             notify = Notify()
             notify.notifySend(cmd)
 
+        elif "share" in cmd:
+            share = Share()
+            share.shareLink(cmd)
+
     def getClass(self):
         return self.uiUpdate
 
@@ -62,49 +68,25 @@ class UiUpdate(QtCore.QObject):
     signBatteryIcon = QtCore.pyqtSignal(int, str)
     signCarrier = QtCore.pyqtSignal(str)
 
-    TAG = "UiUpdate: "
-
     def sendSignal(self, cmd):
-
+        self.LOG_TAG = "UiUpdate: "
         if "battery" in cmd:
             command = re.findall(r'\d+', cmd)
             lable = (str(command[0]) + "%").strip()
-            print(self.TAG + lable)
+            print(self.LOG_TAG + lable)
             self.signBattery.emit(lable)
             if "charging" in cmd:
                 self.signBatteryIcon.emit(int(command[0]), "charge")
-                print("send charge")
+                print(self.LOG_TAG + "send charge")
             else:
                 self.signBatteryIcon.emit(int(command[0]), "evaluation")
-                print("send evaluation")
+                print(self.LOG_TAG + "send evaluation")
         elif "network" in cmd:
             array = cmd.split(" ")
-            print(array)
+            print(self.LOG_TAG + str(array))
             for name in array:
                 if "network" in name:
                     pass
                 else:
                     carrier = name.strip()
             self.signCarrier.emit(carrier)
-
-
-            
-            
-
-
-    # def __init__(self):
-    #     super(UiUpdate, self).__init__()
-    #     self.running = False
-    #     print(self.TAG + "Класс Создан")
-
-    # def run(self):
-    #     print(self.TAG + "Run")
-    #     self.running = True
-    #     i = 0
-    #     print(self.TAG + "Отправка сигнала")
-    #     self.sign.emit(i)
-    #     print(self.TAG + "Отправлено")
-
-            # time.sleep(str)
-
-    

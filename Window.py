@@ -2,7 +2,7 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import QThread
-from mainwindow import Ui_MainWindow
+from Mainwindow import Ui_MainWindow
 from Commands import Commands
 from Srv import SRV
 from multiprocessing import Process
@@ -117,7 +117,6 @@ class MyProcess(QThread):
 if __name__ == "__main__":
 	app = QApplication(sys.argv)
 	GUI = Window()
-	print("!!!!")
 	GUI.show()
 	try:
 		sys.exit(app.exec_())

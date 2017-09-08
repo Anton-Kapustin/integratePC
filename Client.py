@@ -1,29 +1,28 @@
 import json
 import socket
 
+class Client:
 
-class client:
-    LOG_TAG = "client: "
-    conn = None
+    def __init__(self):
+        self.LOG_TAG = "Client: "
 
-    def conneсtion():
-        print(client.LOG_TAG + "Подключение к серверу")
-        client.conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    def conneсtion(self, ip):
+        print(self.LOG_TAG + "Подключение к серверу")
+        self.conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
-            client.conn.connect(('192.168.88.12', 18031))
-            print(client.LOG_TAG + "Подключено")
+            self.conn.connect((ip, 18031))
+            print(self.LOG_TAG + "Подключено")
         except socket.error as msg:
-            print(client.LOG_TAG + str(msg))
+            print(self.LOG_TAG + str(msg))
 
         except TimeoutError as msg:
-            print(client.LOG_TAG + "Timeout")
+            print(self.LOG_TAG + "Timeout")
 
-    def sending(str):
-        client.conn.send((json.dumps(str)).encode('utf-8'))
-        # client.conn.send(str.encode('utf-8'))
-        # client.conn.sendall(str.encode('utf-8'))
-        print(client.LOG_TAG + "Отправлено : ")
+    def sending(self, str):
+        self.conn.send((json.dumps(str)).encode('utf-8'))
+        # self.conn.send(str.encode('utf-8'))
+        print(self.LOG_TAG + "Отправлено : ")
 
-    def closing():
-        client.conn.close()
-        print(client.LOG_TAG + "Соединение закрыто")
+    def closing(self):
+        self.conn.close()
+        print(self.LOG_TAG + "Соединение закрыто")

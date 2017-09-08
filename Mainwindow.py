@@ -20,7 +20,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setObjectName("centralwidget")
         self.lable_batteryStatus = QtWidgets.QLabel(self.centralwidget)
-        self.lable_batteryStatus.setGeometry(QtCore.QRect(185, 0, 24, 24))
+        self.lable_batteryStatus.setGeometry(QtCore.QRect(185, 0, 30, 24))
         self.lable_batteryStatus.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignBottom)
         self.lable_batteryStatus.setContentsMargins(0, 0, 0, 1)
         self.lable_batteryStatus.setObjectName("lable_batteryStatus")
