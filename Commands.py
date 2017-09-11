@@ -17,7 +17,9 @@ class Commands:
 
     def analyze(self, cmd, ip):
 
-        if "info" in cmd:
+        command = cmd.split("////")
+        print(self.LOG_TAG + str(command))
+        if command[0] == "info":
             status = BatteryStatus.getStatus(BatteryStatus)
             status["PC_info"] = ""
             status['network'] = NetworkStatus.getNetworkStatus(NetworkStatus)
@@ -33,32 +35,40 @@ class Commands:
             client.sending(status)
             print(self.LOG_TAG + "Отправлено: ")
             client.closing()
-        elif "backlight" in cmd:
-            backl = re.findall(r'\d+', cmd)
+        elif "backlight" == command[0]:
+            backl = re.findall(r'\d+', command[1])
             print(self.LOG_TAG + backl[0])
             backlight = backl[0]
             self.backlight.setBacklight(backlight)
-        elif "sound" in cmd:
+        elif "sound" == command[0]:
             sound = SoundControl()
-            snd = re.findall(r'\d+', cmd)
+            snd = re.findall(r'\d+', command[1])
             print(snd[0])
             sound.setSoundVol(snd[0])
 
-        elif "&" in cmd:
-            command = cmd.split("&")
+        elif "phone_info" == command[0]:
+            command = command[1].split("&")
             print(self.LOG_TAG + cmd)
             for i in command:
                 if "battery" in i:
                     self.uiUpdate.sendSignal(i)
                 elif "network" in i:
                     self.uiUpdate.sendSignal(i)
-        elif "notify" in cmd:
+        elif "notify" == command[0]:
             notify = Notify()
-            notify.notifySend(cmd)
+            notify.notifySend(command[1])
 
-        elif "share" in cmd:
+        elif "share" in command[0]:
             share = Share()
-            share.shareLink(cmd)
+            string = command[0].split("_")
+            print(self.LOG_TAG + string[1])
+            if ("link" == string[1]):
+                share.shareLink(command[1])
+            elif ("text" in string[1]):
+                share.shareText(command[1])
+
+
+            
 
     def getClass(self):
         return self.uiUpdate
