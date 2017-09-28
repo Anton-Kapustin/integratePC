@@ -1,7 +1,11 @@
-import subprocess
-import re
-LOG_TAG = "NetworkStatus: "
+import subprocess, re
+from datetime import datetime
+
 class NetworkStatus:
+    def __init__(self):
+        time = datetime.now()
+        currentTime = str(time.hour) + ":" + str(time.minute) + "_"
+        self.LOG_TAG = currentTime + self.__class__.__name__
 
     def getNetworkStatus(self):
         cmd = "nmcli dev status"
