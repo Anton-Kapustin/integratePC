@@ -17,11 +17,16 @@ class Window(QMainWindow, Ui_MainWindow):
 		super(Window, self).__init__()
 		self.setupUi(self)
 		self.lable_batteryStatus
-		# self.setGeometry(50, 50, 500, 300)
+		self.setGeometry(50, 50, 200, 500)
 		self.setWindowTitle("Integrate")
 		self.setWindowIcon(QIcon('1.png'))
 		self.UI_tools()
 		self.show()
+
+	def paintEvent(self, event):
+		super().paintEvent(event)
+		painter = QPainter(self)
+		painter.drawPixmap(self.rect(), QPixmap("res/phone.png"))
 
 	def UI_tools(self):
 		self.qThread = MyProcess(self)

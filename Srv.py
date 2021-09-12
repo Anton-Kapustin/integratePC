@@ -28,7 +28,7 @@ class SRV:
         udp_sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         print(self.LOG_TAG + "Создан сокет")
         hostName = socket.gethostname()
-        message = 'integrate, name: ' + hostName
+        message = 'integrate, name: ' + hostName + ', distr: debian';
         print(self.LOG_TAG + message)
         udp_sock.sendto(message.encode('utf-8'), ('255.255.255.255', 18032))
         print(self.LOG_TAG + "Отправлен")

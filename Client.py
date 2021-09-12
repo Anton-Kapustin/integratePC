@@ -10,7 +10,7 @@ class Client:
         print(self.LOG_TAG + "Подключение к серверу")
         self.conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
-            self.conn.connect((ip, 18031))
+            self.conn.connect((ip, 18030))
             print(self.LOG_TAG + "Подключено")
         except socket.error as msg:
             print(self.LOG_TAG + str(msg))
