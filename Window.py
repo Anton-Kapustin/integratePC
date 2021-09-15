@@ -8,6 +8,7 @@ from Srv import SRV
 from multiprocessing import Process
 from ImageUrl import ImageUrl
 import time
+from Tray import SystemTrayIcon
 
 
 class Window(QMainWindow, Ui_MainWindow):
@@ -54,6 +55,8 @@ class Window(QMainWindow, Ui_MainWindow):
 		toolbar.addAction(stopAction)
 		toolbar = self.addToolBar('Exit')
 		toolbar.addAction(exitAction)
+		self.tray = SystemTrayIcon(QIcon("1.png"), self)
+		self.tray.show()
 
 		# self.button_connect.clicked.connect(self.startSrv)
 		# self.button_stop.clicked.connect(self.stopSrv)

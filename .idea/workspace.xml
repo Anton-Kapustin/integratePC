@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78100f8a-b801-4399-ae20-b6b15d15aa3e" name="Default" comment="Refactoring code.&#10;add:&#10;- toolbar&#10;- Qt signals to update update data into window;&#10;- battery current level from android;&#10;- battery icon depending on the level;&#10;- carrier lable;&#10;- receive and display popUp notifications from android;&#10;- PC sound control volume from android;&#10;- PC backlight control from android;">
-      <change beforePath="$PROJECT_DIR$/.idea/Integrate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Integrate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="78100f8a-b801-4399-ae20-b6b15d15aa3e" name="Default" comment="- fix background&#10;- fix ui geometry">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mainwindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Srv.py" beforeDir="false" afterPath="$PROJECT_DIR$/Srv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phone.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +44,9 @@
     <option name="height" value="744" />
   </component>
   <component name="ProjectId" id="1xzWNTY36FfTuDfbvfoLYEgUAme" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -84,7 +83,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Window.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Notify.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -127,6 +126,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NetworkStatus.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Notify" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Integrate" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Notify.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -224,6 +244,7 @@
       <item itemvalue="Python.tray" />
       <item itemvalue="Python.gui" />
       <item itemvalue="Python.Window.py" />
+      <item itemvalue="Python.Notify" />
       <item itemvalue="Python.NetworkStatus" />
       <item itemvalue="Python.BatteryStatus" />
     </list>
@@ -244,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1503942216017</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- fix background&#10;- fix ui geometry">
+      <created>1631469954183</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1631469954183</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -288,7 +316,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Refactoring code.&#10;add:&#10;- toolbar&#10;- Qt signals to update update data into window;&#10;- battery current level from android;&#10;- battery icon depending on the level;&#10;- carrier lable;&#10;- receive and display popUp notifications from android;&#10;- PC sound control volume from android;&#10;- PC backlight control from android;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring code.&#10;add:&#10;- toolbar&#10;- Qt signals to update update data into window;&#10;- battery current level from android;&#10;- battery icon depending on the level;&#10;- carrier lable;&#10;- receive and display popUp notifications from android;&#10;- PC sound control volume from android;&#10;- PC backlight control from android;" />
+    <MESSAGE value="- fix background&#10;- fix ui geometry" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix background&#10;- fix ui geometry" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/NetworkStatus.py">
